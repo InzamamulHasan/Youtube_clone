@@ -5,17 +5,23 @@ import {FaYoutube,FaSistrix} from "react-icons/fa"
 
 const SearchBar = ({addVideos}) => {
     const [searchTerm,setSearchTerm] = useState("React Tutorials")
-    const [search,setSearch]=useState(searchTerm)
      
     useEffect(()=>{
-        getYoutubeVideos() 
-    },[search])
+        YoutubeVideos() ;
+    },[])
 
-    function getYoutubeVideos(){
+
+    function keyDownHandler(event){
+      if(event.key==='Enter'){
+        YoutubeVideos()
+      }
+    }
+
+    function YoutubeVideos(){
 
         youtube.get("/search",{
           params:{
-            q: search,
+            q: searchTerm,
             type: "video",
             part:"snippet",
             maxResults:10,
@@ -35,10 +41,10 @@ const SearchBar = ({addVideos}) => {
              </div>
               <div className="g">
                 <input type="text" placeholder="Search" 
-                  onChange={e => setSearchTerm(e.target.value)}
-                  value = {searchTerm}
-                  />
-                <button onClick={()=>setSearch(searchTerm)}> < FaSistrix className="ser"/></button>
+                  onChange={e => setSearchTerm(e.target.value)} 
+                  value = {searchTerm} onKeyDown={keyDownHandler}
+                 />
+                <button onClick={YoutubeVideos}> < FaSistrix className="ser"/></button>
                
               </div>
              <div>

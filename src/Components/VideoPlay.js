@@ -7,7 +7,7 @@ const VideoPlay = ({video}) => {
               { 
               video==null ? <h1>Loading .... </h1> : (
                 <div className="play">
-                <iframe width="85%" height="415px" src={`https://www.youtube.com/embed/${video.id.videoId}`} ></iframe>
+                <iframe title={video.snippet.title} width="85%" height="415px" src={`https://www.youtube.com/embed/${video.id.videoId}`} ></iframe>
                 <h3>Title :: {video.snippet.title}</h3>
                 </div>
               )
