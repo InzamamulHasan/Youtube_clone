@@ -20,6 +20,7 @@ const VideoList = ({videos, videoChosen}) => {
                            src={video.snippet.thumbnails.high.url}
                            alt = {video.snippet.title}
                         />
+                        <p className="p">{video.snippet.title}</p>
                   </div>
                 ))
                 

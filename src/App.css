@@ -82,3 +82,10 @@ button:hover{
   background-color: rgb(146, 146, 218);
   color: aliceblue;
 }
+span{
+  color: gold;
+}
+.p{
+  color: rgb(218, 207, 146);
+  margin-top: 0px;
+}

@@ -27,7 +27,9 @@ const SearchBar = ({addVideos}) => {
             maxResults:10,
           }
         })
-        .then((response) => addVideos(response.data.items))
+        .then((response) => {
+          console.log(response.data.items)
+          addVideos(response.data.items)})
         .catch((error) => console.log(error))
   
       }
